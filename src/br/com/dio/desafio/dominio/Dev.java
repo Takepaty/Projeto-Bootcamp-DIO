@@ -7,26 +7,28 @@ import java.util.Set;
 
 public class Dev {
     private String nome;
-    private Set<Conteudo> conteudoInscritos = new LinkedHashSet<>();
-    private Set<Conteudo> conteudoConcluido = new LinkedHashSet<>();
+    private Set<Conteudo> mostrarConteudoInscritos = new LinkedHashSet<>();
+    private Set<Conteudo> mostrarConteudoConcluido = new LinkedHashSet<>();
+
+
 
     public void inscreverBootcamp(Bootcamp bootcamp){
-        this.conteudoInscritos.addAll(bootcamp.getConteudos());
+        this.mostrarConteudoInscritos.addAll(bootcamp.getConteudos());
         bootcamp.getDevInscritos().add(this);
     }
 
-    public void progredir(){
-        Optional<Conteudo> conteudo = this.conteudoInscritos.stream().findFirst();
+    public void avancarConteudo(){
+        Optional<Conteudo> conteudo = this.mostrarConteudoInscritos.stream().findFirst();
         if(conteudo.isPresent()){
-            this.conteudoConcluido.add(conteudo.get());
-            this.conteudoInscritos.remove(conteudo.get());
+            this.mostrarConteudoConcluido.add(conteudo.get());
+            this.mostrarConteudoInscritos.remove(conteudo.get());
         }else{
-            System.err.println("Você não esta matriculado em nenhum conteúdo!");
+            System.err.println("Você não esta matrículado em nenhum conteúdo!");
         }
     }
 
     public double calcularTotalXp(){
-        return this.conteudoConcluido
+        return this.mostrarConteudoConcluido
                 .stream()
                 .mapToDouble(Conteudo::calcularXp)
                 .sum();
@@ -40,20 +42,20 @@ public class Dev {
         this.nome = nome;
     }
 
-    public Set<Conteudo> getConteudoInscritos() {
-        return conteudoInscritos;
+    public Set<Conteudo> getMostrarConteudoInscritos() {
+        return mostrarConteudoInscritos;
     }
 
-    public void setConteudoInscritos(Set<Conteudo> conteudoInscritos) {
-        this.conteudoInscritos = conteudoInscritos;
+    public void setMostrarConteudoInscritos(Set<Conteudo> mostrarConteudoInscritos) {
+        this.mostrarConteudoInscritos = mostrarConteudoInscritos;
     }
 
-    public Set<Conteudo> getConteudoConcluido() {
-        return conteudoConcluido;
+    public Set<Conteudo> getMostrarConteudoConcluido() {
+        return mostrarConteudoConcluido;
     }
 
-    public void setConteudoConcluido(Set<Conteudo> conteudoConcluido) {
-        this.conteudoConcluido = conteudoConcluido;
+    public void setMostrarConteudoConcluido(Set<Conteudo> mostrarConteudoConcluido) {
+        this.mostrarConteudoConcluido = mostrarConteudoConcluido;
     }
 
     @Override
@@ -61,11 +63,11 @@ public class Dev {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Dev dev = (Dev) o;
-        return Objects.equals(nome, dev.nome) && Objects.equals(conteudoInscritos, dev.conteudoInscritos) && Objects.equals(conteudoConcluido, dev.conteudoConcluido);
+        return Objects.equals(nome, dev.nome) && Objects.equals(mostrarConteudoInscritos, dev.mostrarConteudoInscritos) && Objects.equals(mostrarConteudoConcluido, dev.mostrarConteudoConcluido);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nome, conteudoInscritos, conteudoConcluido);
+        return Objects.hash(nome, mostrarConteudoInscritos, mostrarConteudoConcluido);
     }
 }

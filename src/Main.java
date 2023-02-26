@@ -34,25 +34,45 @@ public class Main {
         Dev devCamila = new Dev();
         devCamila.setNome("Camila");
         devCamila.inscreverBootcamp(bootcamp);
-        System.out.println("Conteúdo Inscrito Camila:"+ devCamila.getConteudoInscritos());
-        devCamila.progredir();
-        devCamila.progredir();
-        System.out.println("------");
-        System.out.println("Conteúdo Inscrito Camila:"+ devCamila.getConteudoInscritos());
-        System.out.println("Conteúdo Concluidos Camila:"+ devCamila.getConteudoConcluido());
-        System.out.println("Xp" + devCamila.calcularTotalXp());
+        System.out.printf("Conteúdo inscrito por %s:%n%s%n", devCamila.getNome(), devCamila.getMostrarConteudoInscritos());
+        devCamila.avancarConteudo();
+        devCamila.avancarConteudo();
+        System.out.println("------------------");
+        System.out.println();
+        System.out.printf("Conteúdo inscrito por %s:%n%s%n", devCamila.getNome(), devCamila.getMostrarConteudoInscritos());
+        System.out.println("------------------");
+        System.out.println();
+        System.out.printf("Conteúdo concluido por %s:%n%s%n", devCamila.getNome(), devCamila.getMostrarConteudoConcluido());
+        System.out.println("------------------");
+        System.out.println();
+        System.out.println("XP" + devCamila.calcularTotalXp());
+        System.out.println();
 
-        Dev devJoao = new Dev();
-        devJoao.setNome("João");
-        devJoao.inscreverBootcamp(bootcamp);
-        System.out.println("Conteúdo Incrito João:" + devJoao.getConteudoInscritos());
-        devJoao.progredir();
-        devJoao.progredir();
-        devJoao.progredir();
-        System.out.println("------");
-        System.out.println("Conteúdo Incrito João:" + devJoao.getConteudoInscritos());
-        System.out.println("Conteúdo Concluidos João:" + devJoao.getConteudoConcluido());
-        System.out.println("Xp" + devJoao .calcularTotalXp());
+        System.out.println("*********************************");
+
+        System.out.println();
+        Dev devCarlos = new Dev();
+        devCarlos.setNome("Carlos");
+        devCarlos.inscreverBootcamp(bootcamp);
+        System.out.printf("Conteúdo inscrito por %s:%n%s%n", devCarlos.getNome(), devCarlos.getMostrarConteudoInscritos());
+        devCarlos.avancarConteudo();
+        devCarlos.avancarConteudo();
+        devCarlos.avancarConteudo();
+        System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
+        System.out.println();
+        System.out.printf("Conteúdo inscrito por %s:%n%s%n", devCarlos.getNome(), devCarlos.getMostrarConteudoInscritos());
+        System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
+        System.out.println();
+        System.out.printf("Conteúdo concluido por %s:%n%s%n", devCarlos.getNome(), devCarlos.getMostrarConteudoConcluido());
+        System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
+        System.out.println();
+        System.out.println("XP" + devCarlos.calcularTotalXp());
+
+
+
+
+
+
 
 
 
